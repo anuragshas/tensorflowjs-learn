@@ -75,7 +75,6 @@ class LinearRegression extends Component {
   }
 
   render() {
-    console.log(this.state.beforePrediction);
     return (
       <div>
         <ScatterChartWithData values={this.state.values} />

@@ -1,5 +1,4 @@
 import * as tf from '@tensorflow/tfjs';
-import { generateData } from '../data/LinearRegression';
 
 /**
  * We want to learn the coefficients that give correct solutions to the

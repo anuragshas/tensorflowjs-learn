@@ -14,7 +14,6 @@ const ScatterChartWithData = (props) => (
       type="number" />
     <YAxis dataKey={'y'}
       name="y"
-      domain={[0, 1]}
       type="number" />
     <Tooltip cursor={{ strokeDasharray: '3 3' }} />
     <Scatter name="Points" data={props.values} fill="#82ca9d" />
