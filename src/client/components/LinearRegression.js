@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { generateData } from '../data/LinearRegression';
-import { learnCoefficients } from '../train/LinearRegression';
+import { TrainLinearRegression } from '../train/LinearRegression';
 import ScatterChartWithData from './ScatterChartWithData';
 
 class LinearRegression extends Component {
@@ -15,6 +15,8 @@ class LinearRegression extends Component {
     const trueCoefficients = { a: .2, b: -0.5 };
     this.trainingData = generateData(100, trueCoefficients);
     this.numIterations = 75;
+    this.learningRate = 0.5;
+    this.trainLinearRegression = new TrainLinearRegression(this.learningRate);
   }
 
   async getData() {
@@ -35,7 +37,7 @@ class LinearRegression extends Component {
 
   async getPredictionAndData(after) {
     const xvals = await this.trainingData.xs.data();
-    const predVals = await learnCoefficients(this.trainingData, this.numIterations, after);
+    const predVals = await this.trainLinearRegression.learnCoefficients(this.trainingData, this.numIterations, after);
     const values = Array.from(xvals).map((y, i) => {
       return { 'x': xvals[i], y: predVals[i] };
     });
