@@ -1,0 +1,33 @@
+{
+  "name": "boilerplate-tensorflowjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel src/client/index.html --open --port 3000 --cache-dir dist/cache",
+    "build": "parcel build src/client/index.html --cache-dir build/cache -d build/Release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anuragshas/boilerplate-tensorflowjs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anuragshas/boilerplate-tensorflowjs/issues"
+  },
+  "homepage": "https://github.com/anuragshas/boilerplate-tensorflowjs#readme",
+  "dependencies": {
+    "@tensorflow/tfjs": "^0.12.3",
+    "babel-preset-react": "^6.24.1",
+    "plotly.js": "^1.39.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-plotly.js": "^2.2.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.9.7"
+  }
+}
