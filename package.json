@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel src/client/index.html --open --port 3000 --cache-dir dist/cache",
+    "start": "parcel src/client/index.html --port 3000 --cache-dir dist/cache",
     "build": "parcel build src/client/index.html --cache-dir build/cache -d build/Release"
   },
   "repository": {
@@ -21,11 +21,13 @@
   "homepage": "https://github.com/anuragshas/boilerplate-tensorflowjs#readme",
   "dependencies": {
     "@tensorflow/tfjs": "^0.12.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-react": "^6.24.1",
-    "plotly.js": "^1.39.2",
+    "babel-runtime": "^6.26.0",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-plotly.js": "^2.2.0"
+    "recharts": "^1.1.0"
   },
   "devDependencies": {
     "parcel-bundler": "^1.9.7"

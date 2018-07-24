@@ -22,7 +22,6 @@ const b = tf.variable(tf.scalar(Math.random()));
 
 // Step 2. Create an optimizer, we will use this later. You can play
 // with some of these values to see how the model performs.
-const numIterations = 75;
 const learningRate = 0.5;
 const optimizer = tf.train.sgd(learningRate);
 
@@ -86,20 +85,14 @@ async function train(xs, ys, numIterations) {
   }
 }
 
-async function learnCoefficients() {
-  const trueCoefficients = { a: -.8, b: -.2 };
-  const trainingData = generateData(100, trueCoefficients);
+export async function learnCoefficients(trainingData, numIterations, after = false) {
+  if (after) {
+    // Train the model!
+    await train(trainingData.xs, trainingData.ys, numIterations);
+  }
 
-  const predictionsBefore = predict(trainingData.xs);
-
-  // Train the model!
-  await train(trainingData.xs, trainingData.ys, numIterations);
-
-  const predictionsAfter = predict(trainingData.xs);
-
-  predictionsBefore.dispose();
-  predictionsAfter.dispose();
+  const predictions = predict(trainingData.xs);
+  const predictionData = await predictions.data();
+  predictions.dispose();
+  return predictionData;
 }
-
-
-learnCoefficients();
