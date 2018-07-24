@@ -9,6 +9,8 @@ class LinearRegression extends Component {
     super();
     this.state = {
       values: [],
+      randomCoefficients: [],
+      predictedCoefficients: [],
       beforePrediction: [],
       afterPrediction: [],
     };
@@ -45,14 +47,20 @@ class LinearRegression extends Component {
   }
 
   getBeforePredictedValue(values) {
+    const a = this.trainLinearRegression.a.dataSync()[0].toFixed(2);
+    const b = this.trainLinearRegression.b.dataSync()[0].toFixed(2);
     this.setState({
-      beforePrediction: values
+      beforePrediction: values,
+      randomCoefficients: { a, b },
     });
   }
 
   getAfterPredictedValue(values) {
+    const a = this.trainLinearRegression.a.dataSync()[0].toFixed(2);
+    const b = this.trainLinearRegression.b.dataSync()[0].toFixed(2);
     this.setState({
-      afterPrediction: values
+      afterPrediction: values,
+      predictedCoefficients: { a, b },
     });
   }
 
@@ -80,7 +88,17 @@ class LinearRegression extends Component {
     return (
       <div>
         <ScatterChartWithData values={this.state.values} />
+        <div>
+          <p>Random Coefficients</p>
+          <p>a:{this.state.randomCoefficients.a}</p>
+          <p>b:{this.state.randomCoefficients.b}</p>
+        </div>
         <ScatterChartWithData values={this.state.values} prediction={this.state.beforePrediction} />
+        <div>
+          <p>Predicted Coefficients</p>
+          <p>a:{this.state.predictedCoefficients.a}</p>
+          <p>b:{this.state.predictedCoefficients.b}</p>
+        </div>
         <ScatterChartWithData values={this.state.values} prediction={this.state.afterPrediction} />
       </div>
     );
