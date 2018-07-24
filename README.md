@@ -1,1 +1,1 @@
-# BoilerPlate for tensorflowjs and react projects
+# Learn tensorflowjs
