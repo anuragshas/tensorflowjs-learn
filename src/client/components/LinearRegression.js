@@ -14,7 +14,7 @@ class LinearRegression extends Component {
       beforePrediction: [],
       afterPrediction: [],
     };
-    const trueCoefficients = { a: .2, b: -0.5 };
+    const trueCoefficients = { a: .2, b: 0.5 };
     this.trainingData = generateData(100, trueCoefficients);
     this.numIterations = 75;
     this.learningRate = 0.5;
@@ -87,19 +87,22 @@ class LinearRegression extends Component {
   render() {
     return (
       <div>
-        <ScatterChartWithData values={this.state.values} />
+        <h1>LinearRegression</h1>
+        <div>
+          <ScatterChartWithData values={this.state.values} />
+        </div>
         <div>
           <p>Random Coefficients</p>
           <p>a:{this.state.randomCoefficients.a}</p>
           <p>b:{this.state.randomCoefficients.b}</p>
+          <ScatterChartWithData values={this.state.values} prediction={this.state.beforePrediction} />
         </div>
-        <ScatterChartWithData values={this.state.values} prediction={this.state.beforePrediction} />
         <div>
           <p>Predicted Coefficients</p>
           <p>a:{this.state.predictedCoefficients.a}</p>
           <p>b:{this.state.predictedCoefficients.b}</p>
+          <ScatterChartWithData values={this.state.values} prediction={this.state.afterPrediction} />
         </div>
-        <ScatterChartWithData values={this.state.values} prediction={this.state.afterPrediction} />
       </div>
     );
   }

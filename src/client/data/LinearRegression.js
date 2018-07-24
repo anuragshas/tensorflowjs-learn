@@ -1,6 +1,6 @@
 import * as tf from '@tensorflow/tfjs';
 
-export function generateData(numPoints, coeff, sigma = 0.04) {
+export function generateData(numPoints, coeff, sigma = 0.1) {
   return tf.tidy(() => {
     const [a, b] = [
       tf.scalar(coeff.a), tf.scalar(coeff.b)
@@ -23,7 +23,7 @@ export function generateData(numPoints, coeff, sigma = 0.04) {
 
     return {
       xs,
-      ys: ysNormalized
+      ys
     };
   });
 }
